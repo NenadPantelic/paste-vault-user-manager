@@ -26,11 +26,11 @@ public class User {
     private int id;
 
     @NotBlank
-    @Column(nullable = false)
+    @Column(nullable = false, length = 64)
     private String firstName;
 
     @NotBlank
-    @Column(nullable = false)
+    @Column(nullable = false, length = 64)
     private String lastName;
 
     @NotBlank
@@ -39,8 +39,7 @@ public class User {
     private String email;
 
     @NotBlank
-    @Column(nullable = false, unique = true)
-    @Email
+    @Column(nullable = false, unique = true, length = 32)
     private String username;
 
     @NotBlank

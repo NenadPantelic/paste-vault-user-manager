@@ -2,13 +2,23 @@ package com.pastevault.usermanager.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import lombok.ToString;
+import jakarta.validation.constraints.Size;
 
-@ToString(exclude = "password")
-public record NewUser(@NotBlank String firstName,
-                      @NotBlank String lastName,
+public record NewUser(@NotBlank @Size(min = 1, max = 64) String firstName,
+                      @NotBlank @Size(min = 1, max = 64) String lastName,
                       @NotBlank @Email String email,
-                      @NotBlank String username,
-                      @NotBlank String password,
+                      @NotBlank @Size(min = 8, max = 32) String username,
+                      @NotBlank @Size(min = 8, max = 64) String password,
                       @NotBlank String role) {
+
+    @Override
+    public String toString() {
+        return "NewUser{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
 }

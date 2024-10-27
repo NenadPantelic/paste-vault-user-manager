@@ -4,11 +4,10 @@ import com.pastevault.usermanager.model.Role;
 import lombok.Builder;
 
 @Builder
-public record UserRepresentation(String id,
+public record UserRepresentation(int id,
                                  String firstName,
                                  String lastName,
                                  String email,
                                  String username,
-                                 String password,
                                  Role role) {
 }
